@@ -7,7 +7,8 @@ services:
         ports:
             - '3000:3000'
         depends_on:
-            - db-postgres     
+            - db-postgres
+        restart: on-failure
     db-postgres:
         image: 'postgres:13-alpine'
         environment:
@@ -15,4 +16,4 @@ services:
             POSTGRES_PASSWORD: 'postgres'
         ports:
             - 5432
-        
+        restart: on-failure

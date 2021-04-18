@@ -8,7 +8,7 @@ export class AuthController {
     }
 
     @Post('/signup')
-    signUp(@Body(ValidationPipe) authCredentialDto: AuthCredentialsDto): Promise<void> {
+    signUp(@Body(ValidationPipe) authCredentialDto: AuthCredentialsDto): Promise<{registered: boolean}> {
         return this.authService.signUp(authCredentialDto)
     }
 
