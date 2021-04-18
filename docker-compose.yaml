@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+    api:
+        build:
+            context: .
+            dockerfile: 'Dockerfile.dev'
+        ports:
+            - '3000:3000'
+        depends_on:
+            - db-postgres     
+    db-postgres:
+        image: 'postgres:13-alpine'
+        environment:
+            POSTGRES_USER: 'postgres'
+            POSTGRES_PASSWORD: 'postgres'
+            POSTGRES_DATABASE: 'tyba'
+        ports:
+            - 5432
+        
